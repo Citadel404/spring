@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--方法1.扫描注解，使用注解配置-->
+    <context:component-scan base-package="cn.rlsblog.demo"/>
+    <!--配置model-->
+    <bean id="stu" class="cn.rlsblog.demo.Student">
+        <property name="sno" value="202205001111"/>
+        <property name="sname" value="张三"/>
+        <property name="sage" value="18"/>
+        <property name="ssex" value="女"/>
+    </bean>
+    <!--配置切面类bean的id-->
+    <bean id="aspect" class="cn.rlsblog.demo.Advice"/>
+    <!--方法2.使用xml配置切面类-->
+    <!--<aop:config>
+        <aop:aspect ref="aspect">
+            <aop:before method="beforeOut" pointcut="execution(* cn.rlsblog.demo.Student.attendclass())"/>
+        </aop:aspect>
+    </aop:config>-->
+    <!--启动基于注解的AspectJ支持-->
+    <aop:aspectj-autoproxy/>
+</beans>
