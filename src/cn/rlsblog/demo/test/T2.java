@@ -1,6 +1,9 @@
 package cn.rlsblog.demo.test;
+/**
+ * Author: 973969022@qq.com
+ * Date: 2024/4/30 19:54
+ */
 import cn.rlsblog.demo.Student;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 //测试类
 public class T2 {
